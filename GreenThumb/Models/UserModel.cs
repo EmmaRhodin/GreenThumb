@@ -9,6 +9,6 @@ namespace GreenThumb.Models
         [Column("user_id")] public int UserId { get; set; }
         [Column("username")] public string Username { get; set; } = null!;
         [Column("password")] public string Password { get; set; } = null!;
-        public virtual GardenModel? Garden { get; set; }
+        [Column("garden")] public virtual GardenModel? Garden { get; set; }
     }
 }

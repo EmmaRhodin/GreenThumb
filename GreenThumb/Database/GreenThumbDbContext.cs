@@ -19,7 +19,7 @@ namespace GreenThumb.Database
         {
             base.OnConfiguring(optionsBuilder);
 
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=SuperheroDb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=GreenThumbDb;Trusted_Connection=True;");
         }
     }
 }

@@ -15,7 +15,7 @@ namespace GreenThumb.Models
         [Column("name")] public string Name { get; set; } = null!;
         [Column("botanical_name")] public string BotanicalName { get; set; } = null!;
         [Column("description")] public string? Description { get; set; }
-        public InstructionModel? Instruction { get; set; }
-        public virtual ICollection<GardenModel> Gardens { get; set; }
+        [Column("instruction")] public InstructionModel? Instruction { get; set; }
+        [Column("garden")] public virtual ICollection<GardenModel> Gardens { get; set; }
     }
 }

@@ -4,8 +4,8 @@ namespace GreenThumb.Models
 {
     internal class InstructionModel
     {
-        [Column("id")] public int Id { get; set; }
+        [Column("instruction_id")] public int Id { get; set; }
         [Column("instruction")] public string? Instruction { get; set; }
-        public List<PlantModel> Plants { get; set; } = new();
+        [Column("plants")] public List<PlantModel> Plants { get; set; } = new();
     }
 }
