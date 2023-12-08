@@ -9,10 +9,41 @@
       Title="PlantWindowPage">
 
     <Grid>
-        <TextBlock 
-            Text="PlantWindowPage Test"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                />
+            <ColumnDefinition
+                />
+            <ColumnDefinition
+                />
+            <ColumnDefinition
+                />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition
+                />
+            <RowDefinition
+                />
+            <RowDefinition
+                />
+            <RowDefinition
+                />
+        </Grid.RowDefinitions>
+
+        <TextBox
+            Name="txtbxSearch"/>
+        <Button 
+            Name="btnSearch"
+            Grid.Column="1"
+            Click="btnSearch_Click"/>
+        <ListView Name="lstOne" Grid.Row="1" Grid.RowSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Botanical Name" DisplayMemberBinding="{Binding BotanicalName}"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Page>

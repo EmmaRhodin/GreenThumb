@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GreenThumb.Migrations
 {
     [DbContext(typeof(GreenThumbDbContext))]
-    [Migration("20231204120408_Update02")]
-    partial class Update02
+    [Migration("20231206105913_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,21 +24,6 @@ namespace GreenThumb.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("GardenModelPlantModel", b =>
-                {
-                    b.Property<int>("GardensUserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PlantsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("GardensUserId", "PlantsId");
-
-                    b.HasIndex("PlantsId");
-
-                    b.ToTable("GardenModelPlantModel");
-                });
 
             modelBuilder.Entity("GreenThumb.Models.GardenModel", b =>
                 {
@@ -56,6 +41,20 @@ namespace GreenThumb.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Garden");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            Adress = "Stengatan 12, Malmö",
+                            GardenId = 1
+                        },
+                        new
+                        {
+                            UserId = 2,
+                            Adress = "Kärleksgatan 72C, Lund",
+                            GardenId = 2
+                        });
                 });
 
             modelBuilder.Entity("GreenThumb.Models.InstructionModel", b =>
@@ -63,7 +62,7 @@ namespace GreenThumb.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("instruction_id");
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -71,9 +70,41 @@ namespace GreenThumb.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("instruction");
 
+                    b.Property<int?>("PlantId")
+                        .HasColumnType("int")
+                        .HasColumnName("plant_id");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("PlantId");
+
                     b.ToTable("Instructions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Instruction = "Vattna varannan dag",
+                            PlantId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Instruction = "Vattna varannan dag",
+                            PlantId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Instruction = "Vattna varannan dag",
+                            PlantId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Instruction = "Stäng näsan",
+                            PlantId = 3
+                        });
                 });
 
             modelBuilder.Entity("GreenThumb.Models.PlantModel", b =>
@@ -94,7 +125,7 @@ namespace GreenThumb.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("description");
 
-                    b.Property<int?>("InstructionId")
+                    b.Property<int?>("GardenModelUserId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -104,9 +135,32 @@ namespace GreenThumb.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("InstructionId");
+                    b.HasIndex("GardenModelUserId");
 
                     b.ToTable("Plants");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BotanicalName = "Anemone nemorosa",
+                            Description = "En blomma som blir 10-20 cm hög, med vita blad",
+                            Name = "Vitsippa"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BotanicalName = "Helianthus annuus",
+                            Description = "En blomma som kan bli 3 m hög, med stora gula blad",
+                            Name = "Solros"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BotanicalName = "Helicodiceros muscivorus",
+                            Description = "En illaluktande planta som sägs likna ändan på ett dött djur",
+                            Name = "Fläckig drakkalla"
+                        });
                 });
 
             modelBuilder.Entity("GreenThumb.Models.UserModel", b =>
@@ -131,21 +185,20 @@ namespace GreenThumb.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
-                });
 
-            modelBuilder.Entity("GardenModelPlantModel", b =>
-                {
-                    b.HasOne("GreenThumb.Models.GardenModel", null)
-                        .WithMany()
-                        .HasForeignKey("GardensUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GreenThumb.Models.PlantModel", null)
-                        .WithMany()
-                        .HasForeignKey("PlantsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasData(
+                        new
+                        {
+                            UserId = 2,
+                            Password = "STEFANÄRBÄST",
+                            Username = "Stefan"
+                        },
+                        new
+                        {
+                            UserId = 1,
+                            Password = "123",
+                            Username = "Emma"
+                        });
                 });
 
             modelBuilder.Entity("GreenThumb.Models.GardenModel", b =>
@@ -159,18 +212,30 @@ namespace GreenThumb.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("GreenThumb.Models.PlantModel", b =>
-                {
-                    b.HasOne("GreenThumb.Models.InstructionModel", "Instruction")
-                        .WithMany("Plants")
-                        .HasForeignKey("InstructionId");
-
-                    b.Navigation("Instruction");
-                });
-
             modelBuilder.Entity("GreenThumb.Models.InstructionModel", b =>
                 {
+                    b.HasOne("GreenThumb.Models.PlantModel", "Plant")
+                        .WithMany("Instruction")
+                        .HasForeignKey("PlantId");
+
+                    b.Navigation("Plant");
+                });
+
+            modelBuilder.Entity("GreenThumb.Models.PlantModel", b =>
+                {
+                    b.HasOne("GreenThumb.Models.GardenModel", null)
+                        .WithMany("Plants")
+                        .HasForeignKey("GardenModelUserId");
+                });
+
+            modelBuilder.Entity("GreenThumb.Models.GardenModel", b =>
+                {
                     b.Navigation("Plants");
+                });
+
+            modelBuilder.Entity("GreenThumb.Models.PlantModel", b =>
+                {
+                    b.Navigation("Instruction");
                 });
 
             modelBuilder.Entity("GreenThumb.Models.UserModel", b =>

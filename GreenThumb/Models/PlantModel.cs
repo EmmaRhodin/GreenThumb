@@ -7,15 +7,13 @@ namespace GreenThumb.Models
     {
         public PlantModel()
         {
-            this.Gardens = new HashSet<GardenModel>();
         }
 
         [Key]
         [Column("id")] public int Id { get; set; }
+        [Column("botanical_name")] public string? BotanicalName { get; set; }
         [Column("name")] public string Name { get; set; } = null!;
-        [Column("botanical_name")] public string BotanicalName { get; set; } = null!;
         [Column("description")] public string? Description { get; set; }
-        [Column("instruction")] public InstructionModel? Instruction { get; set; }
-        [Column("garden")] public virtual ICollection<GardenModel> Gardens { get; set; }
+        public List<InstructionModel> Instruction { get; set; } = new();
     }
 }
