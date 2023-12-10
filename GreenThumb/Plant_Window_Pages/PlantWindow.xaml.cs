@@ -20,8 +20,6 @@ namespace GreenThumb
 
         private void btnLogOut_Click(object sender, RoutedEventArgs e)
         {
-            LogIn logIn = new LogIn();
-            logIn.Show();
             this.Close();
         }
 
@@ -33,11 +31,6 @@ namespace GreenThumb
         private void btnPlantWindow_Click(object sender, RoutedEventArgs e)
         {
             PlantPageNavigation.Content = new PlantWindowPage();
-        }
-
-        private void btnMyGarden_Click(object sender, RoutedEventArgs e)
-        {
-            PlantPageNavigation.Content = new MyGardenPage();
         }
     }
 }

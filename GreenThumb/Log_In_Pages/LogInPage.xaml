@@ -18,6 +18,11 @@
         </Rectangle>
         
         <!-- Quick Log In, To be deleted -->
+        <TextBlock 
+            Text="Blev inte färdig med denna delen :("
+            Margin="100,200"
+            HorizontalAlignment="Center"
+            />
         <Button
             Name="btnQuickLogIn"
             Content="Quick LogIn!"

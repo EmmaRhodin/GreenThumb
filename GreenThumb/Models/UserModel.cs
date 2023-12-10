@@ -5,6 +5,8 @@ namespace GreenThumb.Models
 {
     internal class UserModel
     {
+        // Blev aldrig färdig med att implementera GardenModel och UserModel
+
         [Key]
         [Column("user_id")] public int UserId { get; set; }
         [Column("username")] public string Username { get; set; } = null!;

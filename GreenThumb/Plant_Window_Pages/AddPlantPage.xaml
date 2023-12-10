@@ -9,10 +9,164 @@
       Title="AddPlantPage">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="25"
+                />
+            <ColumnDefinition
+                />
+            <ColumnDefinition
+                Width="25"/>
+            <ColumnDefinition
+                Width="100"
+                />
+            <ColumnDefinition
+                Width="200"
+                />
+            <ColumnDefinition
+                Width="25"/>
+            <ColumnDefinition
+                Width="125"/>
+            <ColumnDefinition
+                />
+            <ColumnDefinition
+                Width="25"
+                />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="25"
+                />
+            <RowDefinition
+                />
+            <RowDefinition
+                Height="25"/>
+            <RowDefinition
+                Height="10"/>
+            <RowDefinition
+                Height="25"/>
+            <RowDefinition
+                Height="10"/>
+            <RowDefinition 
+                Height="25"/>
+            <RowDefinition 
+                Height="10"/>
+            <RowDefinition
+                Height="25"
+                />
+            <RowDefinition
+                Height="25"/>
+            <RowDefinition
+                Height="10"/>
+            <RowDefinition 
+                Height="25"/>
+            <RowDefinition 
+                Height="100"/>
+            <RowDefinition
+                Height="25"/>
+            <RowDefinition
+                />
+            <RowDefinition
+                Height="25"
+                />
+        </Grid.RowDefinitions>
+
+        <Rectangle 
+            Fill="White"
+            Grid.ColumnSpan="9"
+            Grid.RowSpan="16"
+            />
+
         <TextBlock 
-            Text="AddPlantPage Test"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"/>
+            Text="Plant Name:   "
+            Grid.Row="2"
+            Grid.Column="3"
+            HorizontalAlignment="Left"/>
+        <TextBox 
+            Name="txtbxPlantName"
+            Grid.Row="2"
+            Grid.Column="4"
+            />
+        <TextBlock 
+            Text=" * "
+            Grid.Row="2"
+            Grid.Column="5"/>
+
+        <TextBlock 
+            Text="Botanical Name:   "
+            Grid.Row="4"
+            Grid.Column="3"
+            HorizontalAlignment="Left"
+            />
+        <TextBox 
+            Name="txtbxLatinName"
+            Grid.Row="4"
+            Grid.Column="4"
+            />
+        <TextBlock 
+            Text=" * "
+            Grid.Row="4"
+            Grid.Column="5"
+            />
+
+        <TextBlock 
+            Text="Description:"
+            Grid.Row="6"
+            Grid.Column="3"
+            />
+        <TextBox 
+            Name="txtbxDescription"
+            Grid.Row="6"
+            Grid.Column="4"/>
+        <TextBlock 
+            Text=" * = Required fields"
+            Grid.Row="6"
+            Grid.Column="6"
+            />
+
+        <TextBlock 
+            Text="Instructions:"
+            Grid.Row="8"
+            Grid.Column="3"
+            />
+        <TextBox
+            Name="txtbxInstructions"
+            Grid.Row="9"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            />
+
+        <Button 
+            Name="btnAddInstruction"
+            Content="Add Instruction"
+            Grid.Row="9"
+            Grid.Column="6"
+            Click="btnAddInstruction_Click" 
+            />
+
+        <ListView 
+            Name="lstInstructions"
+            Grid.Row="11"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="3"
+            />
+
+        <Button 
+            Name="btnDeleteInstruction"
+            Content="Delete Instruction"
+            Grid.Row="11"
+            Grid.Column="6"
+            Click="btnDeleteInstruction_Click"
+            />
+
+        <Button 
+            Name="btnAddPlant"
+            Content="Add Plant"
+            Grid.Row="13"
+            Grid.Column="6"
+            Click="btnAddPlant_Click"
+            />
 
     </Grid>
 </Page>

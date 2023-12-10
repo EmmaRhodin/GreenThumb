@@ -5,6 +5,8 @@ namespace GreenThumb.Models
 {
     internal class GardenModel
     {
+        // Blev aldrig färdig med att implementera GardenModel och UserModel
+
         public GardenModel()
         {
             this.Plants = new HashSet<PlantModel>();

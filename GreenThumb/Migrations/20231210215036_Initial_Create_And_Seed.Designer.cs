@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GreenThumb.Migrations
 {
     [DbContext(typeof(GreenThumbDbContext))]
-    [Migration("20231210151745_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231210215036_Initial_Create_And_Seed")]
+    partial class Initial_Create_And_Seed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,7 +96,7 @@ namespace GreenThumb.Migrations
                         new
                         {
                             Id = 3,
-                            Instruction = "Vattna varannan dag",
+                            Instruction = "Vattna varje dag",
                             PlantId = 3
                         },
                         new
@@ -159,6 +159,27 @@ namespace GreenThumb.Migrations
                             BotanicalName = "Helicodiceros muscivorus",
                             Description = "En illaluktande planta som sägs likna ändan på ett dött djur",
                             Name = "Fläckig drakkalla"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BotanicalName = "Taraxacum sect. Spectabilia",
+                            Description = "En liten gul blomma som ofta ses som ogräs",
+                            Name = "Maskros"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BotanicalName = "Taraxacum sect. Ruderalia",
+                            Description = "En liten gul blomma som ofta ses som ogräs",
+                            Name = "Maskros"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BotanicalName = "Cyanus Segetum",
+                            Description = "En blomma som kan bli 70 cm hög med mörkblåa blad",
+                            Name = "Blåklint"
                         });
                 });
 

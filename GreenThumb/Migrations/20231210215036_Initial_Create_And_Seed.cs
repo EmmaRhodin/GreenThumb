@@ -7,7 +7,7 @@
 namespace GreenThumb.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial_Create_And_Seed : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -92,7 +92,10 @@ namespace GreenThumb.Migrations
                 {
                     { 1, "Anemone nemorosa", "En blomma som blir 10-20 cm hög, med vita blad", null, "Vitsippa" },
                     { 2, "Helianthus annuus", "En blomma som kan bli 3 m hög, med stora gula blad", null, "Solros" },
-                    { 3, "Helicodiceros muscivorus", "En illaluktande planta som sägs likna ändan på ett dött djur", null, "Fläckig drakkalla" }
+                    { 3, "Helicodiceros muscivorus", "En illaluktande planta som sägs likna ändan på ett dött djur", null, "Fläckig drakkalla" },
+                    { 4, "Taraxacum sect. Spectabilia", "En liten gul blomma som ofta ses som ogräs", null, "Maskros" },
+                    { 5, "Taraxacum sect. Ruderalia", "En liten gul blomma som ofta ses som ogräs", null, "Maskros" },
+                    { 6, "Cyanus Segetum", "En blomma som kan bli 70 cm hög med mörkblåa blad", null, "Blåklint" }
                 });
 
             migrationBuilder.InsertData(
@@ -120,7 +123,7 @@ namespace GreenThumb.Migrations
                 {
                     { 1, "Vattna varannan dag", 1 },
                     { 2, "Vattna varannan dag", 2 },
-                    { 3, "Vattna varannan dag", 3 },
+                    { 3, "Vattna varje dag", 3 },
                     { 4, "Stäng näsan", 3 }
                 });
 

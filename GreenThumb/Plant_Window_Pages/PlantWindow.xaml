@@ -18,42 +18,15 @@
         <StackPanel Orientation="Horizontal" Height="75" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Button
                 Name="btnLogOut"
-                Content=" O "
-                Margin="15,15,10,15"
+                Content=" Exit "
+                Margin="50,15,10,15"
                 Padding="5"
                 FontSize="20"
                 HorizontalAlignment="Left"
                 Click="btnLogOut_Click"
                 />
-            <TextBlock
-                Name="txblCurrentUser"
-                Text="Current User:"
-                FontSize="20"
-                Margin="10,25,10,15"
-                HorizontalAlignment="Stretch"
-                />
-            <TextBlock
-                Name="txblUsername"
-                Text="Placeholder"
-                FontSize="20"
-                Margin="0,25,15,15"
-                HorizontalAlignment="Stretch"
-                />
         </StackPanel>
         
-        <!-- En vit rektangel under Navigaton knappar
-             om fönstret förminskas så användarnamnet
-             hamnar under knapparna -->
-        <Rectangle
-            VerticalAlignment="Top"
-            HorizontalAlignment="Right"
-            Height="70"
-            Width="575"
-            >
-            <Rectangle.Fill>
-                <SolidColorBrush Color="ForestGreen"/>
-            </Rectangle.Fill>
-        </Rectangle>
         
         <!-- Navigation knapparna för byta mellan fönster -->
         <StackPanel Orientation="Horizontal" Height="75" VerticalAlignment="Top" HorizontalAlignment="Right">
@@ -68,18 +41,10 @@
             <Button 
                 Name="btnAddPlant"
                 Content="  Add Plants  "
-                Margin="0,15,10,15"
-                FontSize="20"
-                HorizontalAlignment="Right"
-                Click="btnAddPlant_Click"/>
-            <Button
-                Name="btnMyGarden"
-                Content="  My Garden  "
                 Margin="0,15,50,15"
                 FontSize="20"
                 HorizontalAlignment="Right"
-                Click="btnMyGarden_Click"
-                />
+                Click="btnAddPlant_Click"/>
         </StackPanel>
 
         <!-- Navigation frame for pages -->

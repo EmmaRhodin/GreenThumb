@@ -45,6 +45,27 @@ namespace GreenThumb.Database
                     BotanicalName = "Helicodiceros muscivorus",
                     Name = "Fläckig drakkalla",
                     Description = "En illaluktande planta som sägs likna ändan på ett dött djur",
+                },
+                new PlantModel()
+                {
+                    Id = 4,
+                    BotanicalName = "Taraxacum sect. Spectabilia",
+                    Name = "Maskros",
+                    Description = "En liten gul blomma som ofta ses som ogräs",
+                },
+                new PlantModel()
+                {
+                    Id = 5,
+                    BotanicalName = "Taraxacum sect. Ruderalia",
+                    Name = "Maskros",
+                    Description = "En liten gul blomma som ofta ses som ogräs",
+                },
+                new PlantModel()
+                {
+                    Id = 6,
+                    BotanicalName = "Cyanus Segetum",
+                    Name = "Blåklint",
+                    Description = "En blomma som kan bli 70 cm hög med mörkblåa blad",
                 });
             modelBuilder.Entity<InstructionModel>().HasData(
                 new InstructionModel()
@@ -62,7 +83,7 @@ namespace GreenThumb.Database
                 new InstructionModel()
                 {
                     Id = 3,
-                    Instruction = "Vattna varannan dag",
+                    Instruction = "Vattna varje dag",
                     PlantId = 3
                 },
                 new InstructionModel()
@@ -71,6 +92,7 @@ namespace GreenThumb.Database
                     Instruction = "Stäng näsan",
                     PlantId = 3
                 });
+            // Blev aldrig färdig med att implementera GardenModel och UserModel
             modelBuilder.Entity<GardenModel>().HasData(
                 new GardenModel()
                 {
