@@ -51,7 +51,7 @@ namespace GreenThumb.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    botanical_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    botanical_name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     GardenModelUserId = table.Column<int>(type: "int", nullable: true)

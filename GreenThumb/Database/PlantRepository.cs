@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using GreenThumb.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GreenThumb.Database
 {
@@ -19,15 +20,24 @@ namespace GreenThumb.Database
             return _dbSet.ToList();
         }
 
+        public List<T> GetAllInstructions(int plantId)
+        {
+            return _dbSet.Where(s => EF.Property<int>(s, "PlantId") == plantId).ToList();
+        }
+
         // Get by id
         public T? GetById(int id)
         {
             return _dbSet.Find(id);
         }
-        public List<T> GetByBotanicalName(string input)
+        public List<T> GetByPlantName(string input)
         {
+            // Fick lite hjälp av Chat GPT för att få denna metoden att fungera
+            // Den söker genom både BotanicalName och Name property för match med input
             return _dbSet.Where(
-                entity => EF.Property<string>(entity, "BotanicalName")
+                s => EF.Property<string>(s, "BotanicalName")
+                .Contains(input) ||
+                EF.Property<string>(s, "Name")
                 .Contains(input)).ToList();
         }
 
@@ -47,9 +57,22 @@ namespace GreenThumb.Database
         public void Delete(int id)
         {
             T? entityToDelete = GetById(id);
+
             if (entityToDelete != null)
             {
+                if (entityToDelete is PlantModel plantWithInstructions)
+                {
+                    _context.Entry(plantWithInstructions)
+                      .Collection(p => p.Instruction)
+                      .Load();
+
+                    _context.Instructions.RemoveRange(plantWithInstructions.Instruction);
+                }
+                _context.SaveChanges();
+
                 _dbSet.Remove(entityToDelete);
+
+                _context.SaveChanges();
             }
         }
 

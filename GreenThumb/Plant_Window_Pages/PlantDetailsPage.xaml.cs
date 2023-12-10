@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using GreenThumb.Database;
+using GreenThumb.Models;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GreenThumb.Plant_Window_Pages
 {
@@ -20,9 +9,25 @@ namespace GreenThumb.Plant_Window_Pages
     /// </summary>
     public partial class PlantDetailsPage : Page
     {
-        public PlantDetailsPage()
+        public PlantDetailsPage(object plantObject)
         {
             InitializeComponent();
+
+            if (plantObject != null && plantObject is PlantModel)
+            {
+                PlantModel plant = (PlantModel)plantObject;
+                txtbxPlantName.Text = plant.Name;
+                txtbxLatinName.Text = plant.BotanicalName;
+
+                int PlantId = plant.Id;
+                using (GreenThumbDbContext context = new())
+                {
+                    PlantRepository<InstructionModel> instructionModel = new(context);
+                    var instructionDisplay = instructionModel.GetAllInstructions(PlantId);
+                    var instructionText = string.Join(Environment.NewLine, instructionDisplay.Select(s => s.Instruction));
+                    txtbxInstructions.Text = instructionText;
+                }
+            }
         }
     }
 }

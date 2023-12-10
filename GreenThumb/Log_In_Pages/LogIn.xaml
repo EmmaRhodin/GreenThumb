@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumb"
         mc:Ignorable="d"
-        Title="LogIn" Height="600" Width="500" Background="LightGreen">
+        Title="LogIn" 
+        Height="600" 
+        Width="500" 
+        Background="ForestGreen"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Button
                 x:Name="btnGoToRegister"

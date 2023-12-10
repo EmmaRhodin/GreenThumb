@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GreenThumb.Migrations
 {
     [DbContext(typeof(GreenThumbDbContext))]
-    [Migration("20231206105913_InitialCreate")]
+    [Migration("20231210151745_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -117,7 +117,6 @@ namespace GreenThumb.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("BotanicalName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("botanical_name");
 

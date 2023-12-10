@@ -114,7 +114,6 @@ namespace GreenThumb.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("BotanicalName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("botanical_name");
 

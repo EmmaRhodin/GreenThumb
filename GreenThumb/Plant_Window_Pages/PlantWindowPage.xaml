@@ -5,45 +5,120 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GreenThumb.Plant_Window_Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="400" d:DesignWidth="700"
       Title="PlantWindowPage">
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition
+                Width="25"
                 />
             <ColumnDefinition
                 />
             <ColumnDefinition
+                Width="25"/>
+            <ColumnDefinition
+                Width="225"
                 />
             <ColumnDefinition
+                Width="200"
+                />
+            <ColumnDefinition
+                Width="25"/>
+            <ColumnDefinition
+                Width="125"/>
+            <ColumnDefinition
+                />
+            <ColumnDefinition
+                Width="25"
                 />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition
+                Height="25"
                 />
             <RowDefinition
                 />
             <RowDefinition
+                Height="25"/>
+            <RowDefinition
+                Height="25"/>
+            <RowDefinition
+                Height="12"/>
+            <RowDefinition
+                Height="25"
                 />
             <RowDefinition
+                Height="225"/>
+            <RowDefinition 
+                Height="25"/>
+            <RowDefinition
+                Height="10"/>
+            <RowDefinition 
+                Height="25"/>
+            <RowDefinition
+                />
+            <RowDefinition
+                Height="25"
                 />
         </Grid.RowDefinitions>
 
+        <Rectangle 
+            Fill="White"
+            Grid.ColumnSpan="9"
+            Grid.RowSpan="12"
+            />
+
+        <!-- Elements -->
+        <TextBlock 
+            Text="Search:"
+            Grid.Column="3"
+            Grid.Row="2"/>
         <TextBox
-            Name="txtbxSearch"/>
-        <Button 
-            Name="btnSearch"
-            Grid.Column="1"
-            Click="btnSearch_Click"/>
-        <ListView Name="lstOne" Grid.Row="1" Grid.RowSpan="2">
+            Name="txtbxSearch"
+            Grid.Row="3"
+            Grid.Column="3"
+            TextChanged="txtbxSearch_TextChanged"
+            />
+        
+        <ListView 
+            Name="lstOne" 
+            Grid.Row="5" 
+            Grid.Column="3"
+            Grid.RowSpan="5"
+            Grid.ColumnSpan="2"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Botanical Name" DisplayMemberBinding="{Binding BotanicalName}"/>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn 
+                        Header="Botanical Name"
+                        DisplayMemberBinding="{Binding BotanicalName}"
+                        Width="209"
+                        />
+                    <GridViewColumn 
+                        Header="Name" 
+                        DisplayMemberBinding="{Binding Name}"
+                        Width="209"
+                        />
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <Button
+            Content="Details"
+            Name="btnDetails"
+            Grid.Column="6"
+            Grid.Row="7"
+            Click="btnDetails_Click"
+            />
+        <Button 
+            Content="Delete"
+            Name="btnDelete"
+            Grid.Column="6"
+            Grid.Row="9"
+            Click="btnDelete_Click"
+            />
 
     </Grid>
 </Page>

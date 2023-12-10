@@ -30,11 +30,6 @@ namespace GreenThumb
             PlantPageNavigation.Content = new AddPlantPage();
         }
 
-        private void btnPlantDetails_Click(object sender, RoutedEventArgs e)
-        {
-            PlantPageNavigation.Content = new PlantDetailsPage();
-        }
-
         private void btnPlantWindow_Click(object sender, RoutedEventArgs e)
         {
             PlantPageNavigation.Content = new PlantWindowPage();

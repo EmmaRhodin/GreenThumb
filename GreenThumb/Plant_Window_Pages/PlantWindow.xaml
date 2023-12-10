@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThumb"
         mc:Ignorable="d"
-        Title="PlantWindow" Height="600" MinHeight="400" Width="1000" MinWidth="800">
+        Title="PlantWindow"
+        Height="600" 
+        MinHeight="400" 
+        Width="1000" 
+        MinWidth="800"
+        Background="ForestGreen"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         
         <!-- Log Out knappen och användarnamn -->
@@ -45,7 +51,7 @@
             Width="575"
             >
             <Rectangle.Fill>
-                <SolidColorBrush Color="White"/>
+                <SolidColorBrush Color="ForestGreen"/>
             </Rectangle.Fill>
         </Rectangle>
         
@@ -67,16 +73,9 @@
                 HorizontalAlignment="Right"
                 Click="btnAddPlant_Click"/>
             <Button
-                Name="btnPlantDetails"
-                Content="  Plant Details  "
-                Margin="0,15,10,15"
-                FontSize="20"
-                HorizontalAlignment="Right"
-                Click="btnPlantDetails_Click"/>
-            <Button
                 Name="btnMyGarden"
                 Content="  My Garden  "
-                Margin="0,15,10,15"
+                Margin="0,15,50,15"
                 FontSize="20"
                 HorizontalAlignment="Right"
                 Click="btnMyGarden_Click"
@@ -84,6 +83,6 @@
         </StackPanel>
 
         <!-- Navigation frame for pages -->
-        <Frame x:Name="PlantPageNavigation" Margin="10,75,10,10" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="PlantPageNavigation" Margin="50,75,50,50" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
